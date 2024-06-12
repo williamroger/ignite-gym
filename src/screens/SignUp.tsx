@@ -1,18 +1,17 @@
-import { VStack, Image, Center, Text, Heading, ScrollView } from '@gluestack-ui/themed';
 import { useNavigation } from '@react-navigation/native';
-
-import { AuthNavigatorRoutesProps } from '@routes/auth.routes';
+import { VStack, Image, Center, Text, Heading, ScrollView } from '@gluestack-ui/themed';
 
 import LogoSvg from '@assets/logo.svg';
 import BackgroundImg from '@assets/background.png';
+
 import { Input } from '@components/Input';
 import { Button } from '@components/Button';
 
-export function SignIn() {
-  const navigation = useNavigation<AuthNavigatorRoutesProps>();
+export function SignUp() {
+  const navigation = useNavigation();
 
-  function handleNewAccount() {
-    navigation.navigate('signUp');
+  function handleGoBack() {
+    navigation.goBack();
   }
 
   return (
@@ -43,10 +42,14 @@ export function SignIn() {
               mb="$6" 
               fontFamily="$heading"
             >
-              Acesse sua conta
+              Crie sua conta
             </Heading>
           </Center>
           <VStack px="$10">
+            <Input
+              placeholder="Nome"
+            
+            />
             <Input 
               placeholder="E-mail" 
               keyboardType="email-address"
@@ -57,21 +60,13 @@ export function SignIn() {
               secureTextEntry
             />
 
-            <Button title="Acessar" />
+            <Button title="Criar e cessar" />
 
             <Center mt="$24">
-              <Text 
-                color="$trueGray100" 
-                fontSize="$sm" 
-                mb="$3" 
-                fontFamily="$body">
-                  Ainda não tenho acesso
-              </Text>
-
               <Button 
-                title="Criar conta" 
+                title="Voltar para o login" 
                 variant="outline" 
-                onPress={handleNewAccount}
+                onPress={handleGoBack}
               />
             </Center>
           </VStack>
