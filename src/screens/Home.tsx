@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { VStack, FlatList } from '@gluestack-ui/themed';
+import { VStack, FlatList, HStack, Heading, Text } from '@gluestack-ui/themed';
 import { HomeHeader } from '@components/HomeHeader';
 import { Group } from '@components/Group';
 
@@ -23,9 +23,20 @@ export function Home() {
         horizontal
         showsHorizontalScrollIndicator={false}
         my="$10"
-        mx="$8"
+        ml="$8"
         maxHeight="$10"
       />
+
+      <VStack flex={1} px="$8">
+        <HStack justifyContent="space-between" alignItems="center">
+          <Heading color="$trueGray200" fontSize="$md">
+            Exercícios
+          </Heading>
+          <Text color="$trueGray200" fontSize="$sm">
+            4
+          </Text>
+        </HStack>
+      </VStack>
     </VStack>
   );
 }
