@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { VStack, FlatList, HStack, Heading, Text } from '@gluestack-ui/themed';
+
 import { HomeHeader } from '@components/HomeHeader';
 import { Group } from '@components/Group';
+import { ExerciseCard } from '@components/ExerciseCard';
 
 export function Home() {
   const [groups, setGroups] = useState(['costas', 'bíceps', 'tríceps', 'ombro']);
@@ -28,7 +30,7 @@ export function Home() {
       />
 
       <VStack flex={1} px="$8">
-        <HStack justifyContent="space-between" alignItems="center">
+        <HStack justifyContent="space-between" alignItems="center" mb="$3">
           <Heading color="$trueGray200" fontSize="$md">
             Exercícios
           </Heading>
@@ -36,6 +38,9 @@ export function Home() {
             4
           </Text>
         </HStack>
+
+        <ExerciseCard />
+        <ExerciseCard />
       </VStack>
     </VStack>
   );
