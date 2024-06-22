@@ -21,7 +21,7 @@ export function History() {
       <ScreenHeader title="Histórico de Exercícios" />
       
       <SectionList 
-        sections={[]}
+        sections={exercises}
         keyExtractor={item => item}
         renderItem={({ item }) => (
           <HistoryCard />

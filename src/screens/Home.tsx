@@ -37,6 +37,7 @@ export function Home() {
         my="$10"
         ml="$8"
         maxHeight="$10"
+        minHeight="$10"
       />
 
       <VStack flex={1} px="$8">
