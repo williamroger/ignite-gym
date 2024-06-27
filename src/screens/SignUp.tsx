@@ -1,5 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import { VStack, Image, Center, Text, Heading, ScrollView } from '@gluestack-ui/themed';
+import { useForm, Controller } from 'react-hook-form';
 
 import LogoSvg from '@assets/logo.svg';
 import BackgroundImg from '@assets/background.png';
@@ -8,10 +9,15 @@ import { Input } from '@components/Input';
 import { Button } from '@components/Button';
 
 export function SignUp() {
+  const { control } = useForm();
   const navigation = useNavigation();
 
   function handleGoBack() {
     navigation.goBack();
+  }
+
+  function handleSignUp() {
+    
   }
 
   return (
@@ -46,21 +52,59 @@ export function SignUp() {
             </Heading>
           </Center>
           <VStack px="$10">
-            <Input
-              placeholder="Nome"
+            <Controller 
+              control={control}
+              name="name"
+              render={({ field: { onChange, value }}) => (
+                <Input
+                  placeholder="Nome"
+                  value={value}
+                  onChangeText={onChange}
+                />
+              )}
+            />  
             
-            />
-            <Input 
-              placeholder="E-mail" 
-              keyboardType="email-address"
-              autoCapitalize="none"
-            />
-            <Input 
-              placeholder="Senha" 
-              secureTextEntry
+            <Controller 
+              control={control}
+              name="email"
+              render={({ field: { onChange, value }}) => (
+                <Input 
+                  placeholder="E-mail" 
+                  keyboardType="email-address"
+                  autoCapitalize="none"
+                  value={value}
+                  onChangeText={onChange}
+                />
+              )}
             />
 
-            <Button title="Criar e cessar" />
+            <Controller 
+              control={control}
+              name="password"
+              render={({ field: { onChange, value }}) => (
+                <Input
+                  placeholder="Senha"
+                  secureTextEntry
+                  value={value}
+                  onChangeText={onChange}
+                />
+              )}
+            />
+            
+            <Controller 
+              control={control}
+              name="password_confirm"
+              render={({ field: { onChange, value }}) => (
+                <Input
+                  placeholder="Confirmar senha"
+                  secureTextEntry
+                  value={value}
+                  onChangeText={onChange}
+                />
+              )}
+            />
+
+            <Button title="Criar e cessar" onPress={handleSignUp} />
 
             <Center mt="$24">
               <Button 
