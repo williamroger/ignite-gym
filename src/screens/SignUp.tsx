@@ -8,16 +8,23 @@ import BackgroundImg from '@assets/background.png';
 import { Input } from '@components/Input';
 import { Button } from '@components/Button';
 
+type FormDataProps = {
+  name: string;
+  email: string;
+  password: string;
+  password_confirm: string;
+}
+
 export function SignUp() {
-  const { control } = useForm();
+  const { control, handleSubmit } = useForm<FormDataProps>();
   const navigation = useNavigation();
 
   function handleGoBack() {
     navigation.goBack();
   }
 
-  function handleSignUp() {
-    
+  function handleSignUp({ name, email, password, password_confirm, }: FormDataProps) {
+    console.log('data: ', { name, email, password, password_confirm });
   }
 
   return (
@@ -100,11 +107,13 @@ export function SignUp() {
                   secureTextEntry
                   value={value}
                   onChangeText={onChange}
+                  onSubmitEditing={handleSubmit(handleSignUp)}
+                  returnKeyType="send"
                 />
               )}
             />
 
-            <Button title="Criar e cessar" onPress={handleSignUp} />
+            <Button title="Criar e cessar" onPress={handleSubmit(handleSignUp)} />
 
             <Center mt="$24">
               <Button 
