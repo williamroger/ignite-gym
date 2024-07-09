@@ -15,7 +15,7 @@ export function HomeHeader() {
         <Text color="$trueGray100" fontSize="$md">
           Olá,
         </Text>
-        <Heading color="$trueGray100" fontSize="$md">
+        <Heading color="$trueGray100" fontSize="$md" fontFamily="$heading">
           William
         </Heading>
       </VStack>

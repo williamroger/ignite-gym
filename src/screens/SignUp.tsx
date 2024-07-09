@@ -133,7 +133,7 @@ export function SignUp() {
 
             <Button title="Criar e cessar" onPress={handleSubmit(handleSignUp)} />
 
-            <Center mt="$24">
+            <Center mt="$12">
               <Button 
                 title="Voltar para o login" 
                 variant="outline" 
